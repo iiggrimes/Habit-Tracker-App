@@ -1,30 +1,33 @@
-package com.dev.habittracker.entity;
+package com.dev.habittracker.models;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User { //i havent added constructors yet
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long userId;
+    private Long id;
 
-    @Column(name = "username")
+    @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(name = "password")
+    @Column(nullable = false)
     private String password;
 
-    public Long getUserId() {
-        return userId;
+    @Column(nullable = false)
+    private String roles;
+
+
+
+    public Long getId() {
+        return id;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setId(Long id) {
+        this.id = id;
     }
-
     public String getUsername() {
         return username;
     }
@@ -40,4 +43,11 @@ public class User { //i havent added constructors yet
     public void setPassword(String password) {
         this.password = password;
     }
-}
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }}
