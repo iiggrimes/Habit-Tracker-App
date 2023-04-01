@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface DailyLogRepository extends JpaRepository<DailyLog, Long> {
-    List<DailyLog> findHabitIdAndDateBetweenOrderByDateAsc(Long habitId, LocalDate startDate, LocalDate endDate);
+
+    List<DailyLog> findByHabitIdAndDateBetweenOrderByDateAsc(Long habitId, LocalDate startDate, LocalDate endDate);
 }
